@@ -32,12 +32,11 @@ sendMail = ->
   console.log "Done"
   process.exit 0
 
- if n > 0 and n % 10 is 0
+ if n > 0 and (n % 10 is 0)
   console.log "#{n}/#{csv.length}"
 
  line = csv[n]
  ++n
- console.log line
 
  opt =
   to: line.email

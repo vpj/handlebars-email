@@ -5,7 +5,8 @@ d3 = require 'd3'
 fs   = require 'fs'
 YAML = require "yamljs"
 args = require('optimist').argv
-Handlebars  = require('handlebars')
+require "./handlebars_helpers"
+Handlebars  = require 'handlebars'
 
 console.log args.name
 unless args.user? and args.password? and args.name? and args.template? and args.csv?
@@ -36,15 +37,14 @@ sendMail = ->
 
  line = csv[n]
  ++n
+ console.log line
 
  opt =
   to: line.email
   subject: subject line
   text: text line
  if html?
-  opt.html = text html
-
- console.log opt
+  opt.html = html line
 
  email.send opt, sendMail
 

@@ -29,7 +29,6 @@ send = (email, cb) ->
 exports.send = send
 
 exports.create = (email, password, name) ->
- console.log arguments
  user =
   email: email
   password: password
